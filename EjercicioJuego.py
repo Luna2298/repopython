@@ -201,7 +201,8 @@ while bandera:
                 bandera
     else:
         
-        input("Respete el formato (enter)")
+        print("Respete el formato (enter)")
+        continue
 
     if puntajeInicial <= 0:
         bandera = False

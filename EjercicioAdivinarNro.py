@@ -16,7 +16,8 @@ diccionario = {1: "Feliciades ganaste!", 2 : "Se terminaron tus intentos. Perdis
                6 : "El nro ingresado es MENOR al nro generado. ",
                7 : "El nro ingresado es MAYOR al nro generado. ",
                8 : "El valor a adivinar era: ",
-               9 : "Intentos que aun te quedan: "}
+               9 : "Intentos que aun te quedan: ",
+               10 : "El rango debe ser entre 1 - 10"}
 
 nro = random.randint(1, 10)
 maxIntentos = 3
@@ -26,17 +27,21 @@ while (maxIntentos > 0):
     try:
         
         respuesta = int(input("Ingrese un nro entre 1 y 10: "))
-        maxIntentos-=1
+        
+        if respuesta > 0 and respuesta < 11:
 
-        if respuesta == nro:
-            print(diccionario[5] + diccionario[1])
-            break
+            maxIntentos-=1
+            if respuesta == nro:
+                print(diccionario[5] + diccionario[1])
+                break
         
-        elif respuesta < nro:
-            print(diccionario[6] + "\n" + diccionario[9] + f"{maxIntentos}" + "\n" + diccionario[3] + "\n")
+            elif respuesta < nro:
+                print(diccionario[6] + "\n" + diccionario[9] + f"{maxIntentos}" + "\n" + diccionario[3] + "\n")
+            else: 
+                print(diccionario[7] + "\n" + diccionario[9] + f"{maxIntentos}" + "\n" + diccionario[3] + "\n")
         
-        elif respuesta > nro:
-            print(diccionario[7] + "\n" + diccionario[9] + f"{maxIntentos}" + "\n" + diccionario[3] + "\n")
+        else:
+            print(diccionario[10] + "\n")
     
     except ValueError:
         print(diccionario[4] + "\n" + diccionario[3] + "\n")
